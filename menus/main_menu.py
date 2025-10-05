@@ -3,47 +3,44 @@ import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from function.create_tasks import create_tasks
-from function.ver_tarefas import ver_tarefas
-from function.ver_tarefa_id import ver_tarefa_id
-from function.deletar_tarefa import deletar_tarefa
-from menus.menu_secundario import menu_segundario
+from function.lists_all_tasks import lists_all_tasks
+from function.task_list_using_id import task_list_using_id
+from function.delete_tasks import delete_tasks
+from menus.secondary_menu import secondary_menu
 
 
 def main_menu():
+    ACCEPTED_CHOICES = ['0', '1', '2', '3', '4', '9', '99']
+
     while True:
-        escolha = str(input('''
+        choices = str(input('''
 1 - Create tasks
-2 - Ver tarefas
-3 - Ver tarefa (id)
-4 - Remover tarefa
-99 - Menu secundario
-0 - Sair
+2 - Lists all tasks
+3 - Task list using id
+4 - Delete tasks
+99 - Submenu
+0 - Exit
 --> '''))
-        while escolha not in [
-            '0', '1', '2', 
-            '3', '4', '9',
-            '99'
-            ]:
-            print('Escolha inválida. Tente novamente.')
-            escolha = str(input('''
+        while choices not in ACCEPTED_CHOICES:
+            print('Invalid choices, please enter a valid value.')
+            choices = str(input('''
 1 - Create tasks
-2 - Ver tarefas
-3 - Ver tarefa (id)
-4 - Remover tarefa
-9 - Definicoes
-99 - Menu secundario
-0 - Sair
+2 - Lists all tasks
+3 - Task list using id
+4 - Delete tasks
+99 - Submenu
+0 - Exit
 --> '''))
 
-        if escolha == '1':
+        if choices == '1':
             create_tasks()
-        elif escolha == '2':
-            ver_tarefas()
-        elif escolha == '3':
-            ver_tarefa_id()
-        elif escolha == '4':
-            deletar_tarefa()
-        elif escolha == '99':
-            menu_segundario()
-        elif escolha == '0':
+        elif choices == '2':
+            lists_all_tasks()
+        elif choices == '3':
+            task_list_using_id()
+        elif choices == '4':
+            delete_tasks()
+        elif choices == '99':
+            secondary_menu()
+        elif choices == '0':
             exit(0)
