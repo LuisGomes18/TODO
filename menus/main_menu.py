@@ -2,17 +2,17 @@ import os
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from function.criar_tarefas import criar_tarefas
+from function.create_tasks import create_tasks
 from function.ver_tarefas import ver_tarefas
 from function.ver_tarefa_id import ver_tarefa_id
 from function.deletar_tarefa import deletar_tarefa
 from menus.menu_secundario import menu_segundario
 
 
-def menu_principal():
+def main_menu():
     while True:
         escolha = str(input('''
-1 - Adicionar tarefa
+1 - Create tasks
 2 - Ver tarefas
 3 - Ver tarefa (id)
 4 - Remover tarefa
@@ -26,7 +26,7 @@ def menu_principal():
             ]:
             print('Escolha inválida. Tente novamente.')
             escolha = str(input('''
-1 - Adicionar tarefa
+1 - Create tasks
 2 - Ver tarefas
 3 - Ver tarefa (id)
 4 - Remover tarefa
@@ -36,7 +36,7 @@ def menu_principal():
 --> '''))
 
         if escolha == '1':
-            criar_tarefas()
+            create_tasks()
         elif escolha == '2':
             ver_tarefas()
         elif escolha == '3':
