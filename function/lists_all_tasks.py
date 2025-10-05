@@ -9,7 +9,7 @@ def lists_all_tasks():
     tasks = load_tasks()
 
     for id_tasks, tasks_info in tasks.items():
-        print(f'\Task: {id_tasks}')
+        print(f'\nTask: {id_tasks}')
         for key, value in tasks_info.items():
             print(f'{key}: {value}')
 
