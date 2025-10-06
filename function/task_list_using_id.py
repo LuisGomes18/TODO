@@ -17,9 +17,6 @@ def task_list_using_id():
         print('The task with the ID I entered was not found. Please enter a valid ID.')
         return
 
-    if not isinstance(id, str):
-        print('The ID must be a string. Please enter a valid ID.')
-        return
-
     task = tasks[id]
-    print(task)
+    for key, value in task:
+        print(f'{key}: {value}')
