@@ -6,11 +6,15 @@ from utils.manipulate_task_data import load_tasks, save_tasks
 from utils.create_id import create_unique_id
 
 from datetime import datetime
+from string import punctuation
 
 
 def create_tasks():
     tasks = load_tasks()
     lines = []
+    lines_tags = []
+    new_punctiation = punctuation.replace('-', '')
+    new_punctiation = new_punctiation.replace('_', '')
 
     id = create_unique_id()
 
@@ -24,6 +28,15 @@ def create_tasks():
         if line.strip().upper() == 'END':
             break
         lines.append(line)
+
+    print('What is the tags of task (END to stop? ')
+    while True:
+        line_tag = str(input())
+        if line_tag.strip().upper() == 'END':
+            break
+
+        line_without_punctuation = ''.join(char for char in line_tag if char not in new_punctiation)
+        lines_tags.append(line_without_punctuation.lower())
 
     DATE = datetime.now().strftime('%Y-%m-%d %H:%M')
 
@@ -45,6 +58,7 @@ def create_tasks():
         f'{str(id)}': {
             'id': id,
             'title': title,
+            'tags': lines_tags,
             'description': description,
             'date': DATE,
             'deadline': deadline,
