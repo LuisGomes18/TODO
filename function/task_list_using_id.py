@@ -19,4 +19,4 @@ def task_list_using_id():
 
     task = tasks[id]
     for key, value in task:
-        print(f'{key}: {value}')
+        print(f'{key.capitalize()}: {value}')

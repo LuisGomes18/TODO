@@ -11,6 +11,6 @@ def lists_all_tasks():
     for id_tasks, tasks_info in tasks.items():
         print(f'\nTask: {id_tasks}')
         for key, value in tasks_info.items():
-            print(f'{key}: {value}')
+            print(f'{key.capitalize()}: {value}')
 
     print('-' * 30)
