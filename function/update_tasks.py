@@ -47,6 +47,7 @@ def update_tasks():
             choices_task['title'] = title
         tasks[id] = choices_task
         save_tasks(tasks)
+        print('Successful modified task')
         return
     elif field_to_modify == '2':
         print('What is the description of the task (END to stop)')
@@ -61,6 +62,7 @@ def update_tasks():
             choices_task['description'] = description
         tasks[id] = choices_task
         save_tasks(tasks)
+        print('Successful modified task')
         return
     elif field_to_modify == '3':
         priority = str(input('What is the priority of the task: ')).lower()
@@ -70,6 +72,7 @@ def update_tasks():
             choices_task['priority'] = priority
         tasks[id] = choices_task
         save_tasks(tasks)
+        print('Successful modified task')
         return
     elif field_to_modify == '4':
         status = str(input('What is the status of the task: ')).lower()
@@ -79,6 +82,7 @@ def update_tasks():
             choices_task['status'] = status
         tasks[id] = choices_task
         save_tasks(tasks)
+        print('Successful modified task')
         return
     elif field_to_modify == '0':
         return

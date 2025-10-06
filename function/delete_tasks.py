@@ -23,3 +23,4 @@ def delete_tasks():
 
     del tasks[id]
     save_tasks(tasks)
+    print('TASK was successfully removed')
