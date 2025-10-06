@@ -15,10 +15,6 @@ def update_tasks():
         print('Id cannot be null')
         return
 
-    if not isinstance(id, str):
-        print('The id must be string type')
-        return
-
     if id not in tasks:
         print('Id was not found')
         return
@@ -45,14 +41,16 @@ def update_tasks():
         title = str(input('What is the title of the task: '))
         if title != choices_task['title']:
             choices_task['title'] = title
+
         tasks[id] = choices_task
         save_tasks(tasks)
         print('Successful modified task')
         return
+
     elif field_to_modify == '2':
         print('What is the description of the task (END to stop)')
         while True:
-            line = input()
+            line = str(input())
             if line.strip().upper() == 'END':
                 break
             lines.append(line)
@@ -60,29 +58,37 @@ def update_tasks():
         description = '\n'.join(lines)
         if description != choices_task['description']:
             choices_task['description'] = description
+
         tasks[id] = choices_task
         save_tasks(tasks)
         print('Successful modified task')
         return
+
     elif field_to_modify == '3':
         priority = str(input('What is the priority of the task: ')).lower()
         while priority not in ['low', 'medium', 'high']:
             priority = str(input('What is the priority of the task: ')).lower()
+
         if priority != choices_task['priority']:
             choices_task['priority'] = priority
+
         tasks[id] = choices_task
         save_tasks(tasks)
         print('Successful modified task')
         return
+
     elif field_to_modify == '4':
         status = str(input('What is the status of the task: ')).lower()
         while status not in ['pending', 'in progress', 'concluded', 'archive']:
             status = str(input('What is the status of the task: ')).lower()
+
         if status != choices_task['status']:
             choices_task['status'] = status
+
         tasks[id] = choices_task
         save_tasks(tasks)
         print('Successful modified task')
         return
+
     elif field_to_modify == '0':
         return
