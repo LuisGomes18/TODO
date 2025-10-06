@@ -15,9 +15,12 @@ def create_tasks():
     id = create_unique_id()
 
     title = str(input('What is the title of the task: '))
+    while title is None:
+        title = str(input('What is the title of the task: '))
+
     print('What is the description of the task (END to stop)?')
     while True:
-        line = input()
+        line = str(input())
         if line.strip().upper() == 'END':
             break
         lines.append(line)
@@ -32,7 +35,7 @@ def create_tasks():
     while status not in ['pending', 'in progress', 'completed', 'archived']:
         status = str(input('What is the status of the task: ')).lower()
 
-    deadline = input('What is the deadline: (leave blank if you do not have one) ')
+    deadline = str(input('What is the deadline: (leave blank if you do not have one) '))
     if not deadline:
         deadline = None
 
