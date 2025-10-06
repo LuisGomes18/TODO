@@ -8,13 +8,9 @@ from utils.manipulate_task_data import load_tasks, save_tasks
 def delete_tasks():
     tasks = load_tasks()
 
-    id = input('What is the task ID: ')
+    id = str(input('What is the task ID: '))
     if id is None:
         print('ID cannot be null')
-        return
-
-    if not isinstance(id, str):
-        print('The ID must be of type string.')
         return
 
     if id not in tasks:
