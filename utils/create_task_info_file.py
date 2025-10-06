@@ -17,7 +17,7 @@ def create_task_info_file() -> None:
 
     try:
         with open(file_path, 'w', encoding='utf-8') as file:
-            print('Ficheiro de informacao das tasks nao existe a criar o ficheiro')
+            print('Task information file does not exist. Creating file...')
             json.dump(data, file, indent=4, ensure_ascii=False)
     except Exception as e:
         print(f'Error saving task data: {e}')
