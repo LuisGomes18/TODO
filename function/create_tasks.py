@@ -15,11 +15,18 @@ def create_tasks():
     lines_tags = []
     new_punctiation = punctuation.replace('-', '')
     new_punctiation = new_punctiation.replace('_', '')
+    MAX_CHARS_TITLE = 30
+    MAX_CHARS_DESCRIPTION = 200
+    MAX_TAGS = 5
 
     id = create_unique_id()
 
     title = str(input('What is the title of the task: '))
     while title is None:
+        title = str(input('What is the title of the task: '))
+
+    while not len(title) <= MAX_CHARS_TITLE:
+        print(f'The title must be less than {MAX_CHARS_TITLE} characters')
         title = str(input('What is the title of the task: '))
 
     print('What is the description of the task (END to stop)?')
@@ -29,6 +36,15 @@ def create_tasks():
             break
         lines.append(line)
 
+    description = '\n'.join(lines)
+    while len(description) < MAX_CHARS_DESCRIPTION:
+        print(f'The description must be less than {MAX_CHARS_DESCRIPTION} characters')
+        while True:
+            line = str(input())
+            if line.strip().upper() == 'END':
+                break
+            lines.append(line)
+
     print('What is the tags of task (END to stop? ')
     while True:
         line_tag = str(input())
@@ -37,6 +53,10 @@ def create_tasks():
 
         line_without_punctuation = ''.join(char for char in line_tag if char not in new_punctiation)
         lines_tags.append(line_without_punctuation.lower())
+
+        if len(lines_tags) == MAX_TAGS:
+            print('You arrived at the maximum of tags of the task')
+            break
 
     DATE = datetime.now().strftime('%Y-%m-%d %H:%M')
 
@@ -51,8 +71,6 @@ def create_tasks():
     deadline = str(input('What is the deadline: (leave blank if you do not have one) '))
     if not deadline:
         deadline = None
-
-    description = '\n'.join(lines)
 
     new_task = {
         f'{str(id)}': {
