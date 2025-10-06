@@ -3,6 +3,7 @@ import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from function.create_tasks import create_tasks
+from function.update_tasks import update_tasks
 from function.lists_all_tasks import lists_all_tasks
 from function.task_list_using_id import task_list_using_id
 from function.delete_tasks import delete_tasks
@@ -15,9 +16,10 @@ def main_menu():
     while True:
         choices = str(input('''
 1 - Create tasks
-2 - Lists all tasks
-3 - Task list using id
-4 - Delete tasks
+2 - Update tasks
+3 - Lists all tasks
+4 - Task list using id
+5 - Delete tasks
 99 - Submenu
 0 - Exit
 --> '''))
@@ -25,9 +27,10 @@ def main_menu():
             print('Invalid choices, please enter a valid value.')
             choices = str(input('''
 1 - Create tasks
-2 - Lists all tasks
-3 - Task list using id
-4 - Delete tasks
+2 - Update tasks
+3 - Lists all tasks
+4 - Task list using id
+5 - Delete tasks
 99 - Submenu
 0 - Exit
 --> '''))
@@ -35,10 +38,12 @@ def main_menu():
         if choices == '1':
             create_tasks()
         elif choices == '2':
-            lists_all_tasks()
+            update_tasks()
         elif choices == '3':
-            task_list_using_id()
+            lists_all_tasks()
         elif choices == '4':
+            task_list_using_id()
+        elif choices == '5':
             delete_tasks()
         elif choices == '99':
             secondary_menu()
