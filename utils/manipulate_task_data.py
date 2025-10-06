@@ -7,7 +7,7 @@ from config.settings import BASE_DIR
 
 
 def load_tasks() -> dict | None:
-    file_path = os.path.join(BASE_DIR, 'data', 'tarefas.json')
+    file_path = os.path.join(BASE_DIR, 'data', 'task.json')
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             return json.load(file)
@@ -23,7 +23,7 @@ def load_tasks() -> dict | None:
 
 
 def save_tasks(data: dict) -> None:
-    file_path = os.path.join(BASE_DIR, 'data', 'tarefas.json')
+    file_path = os.path.join(BASE_DIR, 'data', 'task.json')
 
     if data is None:
         print('Error: task data for saving tasks cannot be null')
