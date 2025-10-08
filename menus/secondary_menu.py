@@ -2,9 +2,9 @@ import os
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from function.purge_all_tasks import purge_all_tasks
-from function.mark_unmark_as_completed import mark_all_tasks_as_complete
-from function.mark_unmark_as_completed import unmark_all_tasks_as_complete
+from function.tasks.purge_all_tasks import purge_all_tasks
+from function.tasks.mark_unmark_as_completed import mark_all_tasks_as_complete
+from function.tasks.mark_unmark_as_completed import unmark_all_tasks_as_complete
 
 
 def secondary_menu():

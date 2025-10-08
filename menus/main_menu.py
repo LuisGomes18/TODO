@@ -2,11 +2,11 @@ import os
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from function.create_tasks import create_tasks
-from function.update_tasks import update_tasks
-from function.lists_all_tasks import lists_all_tasks
-from function.task_list_using_id import task_list_using_id
-from function.delete_tasks import delete_tasks
+from function.tasks.create_tasks import create_tasks
+from function.tasks.update_tasks import update_tasks
+from function.tasks.lists_all_tasks import lists_all_tasks
+from function.tasks.task_list_using_id import task_list_using_id
+from function.tasks.delete_tasks import delete_tasks
 from menus.secondary_menu import secondary_menu
 
 
