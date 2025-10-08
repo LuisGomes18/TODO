@@ -7,6 +7,9 @@ from utils.manipulate_task_data import load_tasks
 
 def lists_all_tasks():
     tasks = load_tasks()
+    if tasks is None:
+        print('Theres no task on the task list')
+        return
 
     for id_tasks, tasks_info in tasks.items():
         print(f'\nTask: {id_tasks}')

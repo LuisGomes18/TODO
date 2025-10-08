@@ -7,6 +7,9 @@ from utils.manipulate_task_data import load_tasks
 
 def task_list_using_id():
     tasks = load_tasks()
+    if tasks is None:
+        print('There is no task on the task list')
+        return
 
     id = str(input('What is the task ID: '))
     if id is None:
