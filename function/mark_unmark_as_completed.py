@@ -15,6 +15,8 @@ def mark_all_tasks_as_complete():
         task_values['status'] = 'completed'
 
     save_tasks(tasks)
+    print('All tasks marked as complete')
+
 
 def unmark_all_tasks_as_complete():
     tasks = load_tasks()
@@ -26,3 +28,4 @@ def unmark_all_tasks_as_complete():
         task_values['status'] = 'pending'
 
     save_tasks(tasks)
+    print('All tasks unmark as complete')
