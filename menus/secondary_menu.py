@@ -5,16 +5,19 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from function.tasks.purge_all_tasks import purge_all_tasks
 from function.tasks.mark_unmark_as_completed import mark_all_tasks_as_complete
 from function.tasks.mark_unmark_as_completed import unmark_all_tasks_as_complete
+from menus.main_menu import main_menu
+from menus.menu_tags import menu_tags
 
 
 def secondary_menu():
-    ACCEPTED_CHOICES = ['1', '2', '3', '99', '0']
+    ACCEPTED_CHOICES = ['1', '2', '3', '4', '99', '0']
 
     while True:
         choice = str(input('''
 1 - Purge all task data
 2 - Mark all tasks as completed
 3 - Unmark all tasks as completed
+4 - Menu tags
 99 - Main menu
 0 - Exit
 -> '''))
@@ -23,6 +26,7 @@ def secondary_menu():
 1 - Purge all task data
 2 - Mark all tasks as completed
 3 - Unmark all tasks as completed
+4 - Menu tags
 99 - Main menu
 0 - Exit
 -> '''))
@@ -33,7 +37,9 @@ def secondary_menu():
             mark_all_tasks_as_complete()
         elif choice == '3':
             unmark_all_tasks_as_complete()
+        elif choice == '4':
+            return menu_tags()
         elif choice == '99':
-            break
+            return main_menu()
         elif choice == '0':
             exit(0)
